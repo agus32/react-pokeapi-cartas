@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+
+import React, { Fragment } from 'react';
+import ReactDOM from 'react-dom/client';
+import CardGroup from './components/CardGroup';
+import {getPokemon, getPokemonData} from './components/getPokemon';
+import { useEffect , useState} from 'react';
+import { NavBar } from './components/NavBar';
+
 
 function App() {
+
+  const [pokemon, setPokemon] = useState([]);
+
+  const fetchPokemon = async () => {
+    try{
+    const data = await getPokemon();
+    const promises = data.results.map(async (pokemon) => {
+      return await getPokemonData(pokemon.url);
+    })
+    const results = await Promise.all(promises);
+    setPokemon(results);
+  }catch(error){
+    console.log(error);
+  }}
+
+  useEffect(() => {fetchPokemon()},[]);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <NavBar/>
+      <CardGroup pokemons={pokemon}/>
     </div>
+    
   );
 }
 
