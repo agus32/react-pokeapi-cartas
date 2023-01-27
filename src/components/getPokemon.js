@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const getPokemon= async (limit=10,offset=0) => {
+export const getPokemon= async (limit=12,offset=0) => {
     let URL = 'https://pokeapi.co/api/v2/pokemon?limit='+limit+'&offset='+offset;
     try{
         const response = await fetch(URL);
