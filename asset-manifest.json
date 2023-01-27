@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-pokeapi-cartas/static/css/main.857196ac.css",
+    "main.js": "/react-pokeapi-cartas/static/js/main.d4454753.js",
+    "index.html": "/react-pokeapi-cartas/index.html",
+    "main.857196ac.css.map": "/react-pokeapi-cartas/static/css/main.857196ac.css.map",
+    "main.d4454753.js.map": "/react-pokeapi-cartas/static/js/main.d4454753.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.857196ac.css",
+    "static/js/main.d4454753.js"
+  ]
+}
